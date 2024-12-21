@@ -2,13 +2,7 @@
 
 This repository contains a simulation of a strawberry farm with different types of robots. The robots include picker robots and explorer drones, each with specific behaviors and tasks. The simulation is implemented using the Mesa framework.
 
-## 📋 Activities
-
-- Code -> [Strawberry Farm](/src/)
-- Concept  Slides -> [Novel Feature](/TheStrawberryFarmNovelties.pdf)
-- Performance Analysis -> [KPI](/kpi.ipynb)
-
-### 🖥️  How to Run
+## 🖥️  How to Run
 
 1. **Install Dependencies:**
    - Install the required libraries using the following command:
@@ -36,7 +30,7 @@ This repository contains a simulation of a strawberry farm with different types 
 4. **Run KPIs:**
    - Run the `kpi.ipynb` file.
 
-### 💡 FarmRobot Class Explanation
+## 💡 FarmRobot Class Explanation
 
 This is a parent class for farm agents with common functionalities.
 
@@ -54,7 +48,7 @@ This is a parent class for farm agents with common functionalities.
 - **Reward Function:** The reward function uses `move_randomly` function to determine rewards based on the robot's actions. For example, moving to a empty cell result in a negative reward, while reaching a tree with strawberry result in a positive reward.
 - **Exploration Decay:** The `exploration_rate` decays over time to encourage the robot to exploit learned actions more as it gains experience. This is done by gradually reducing epsilon after each episode, using `exploration_decay_rate`. This ensures that the robot starts with a high exploration rate to discover new actions and states, but over time, it shifts towards exploiting the knowledge it has gained to maximize rewards.
 
-### 💡 Picker Robot Class Explanation
+## 💡 Picker Robot Class Explanation
 
 **Payload Management:** The robot can carry a maximum of `MAX_PAYLOAD` strawberries. When the payload is full, the robot returns to the nearest collection point to drop off the strawberries using the Breadth-First Search algorithm to find the shortest available path.
 
@@ -72,15 +66,15 @@ This is a parent class for farm agents with common functionalities.
 
 **Communication with Picker Robots:** In the Extended Mode, the drone will send the location to the picker robot to come and pick the strawberry when it detects a strawberry. In the Novel Mode, the drone will trigger the model to run an auction to determine the winning bid for collecting the strawberries.
 
-### 💡 Tree Class Explanation
+## 💡 Tree Class Explanation
 
 **Strawberry Growth:** In the Extended and Novel modes, trees continuously grow strawberries over time to simulate real-life growth cycles.
 
-### 💡 Charger Robot Class Explanation
+## 💡 Charger Robot Class Explanation
 
 **Charging Picker Robots:** In the Novel mode, when a robot is in the `LOW_BATTERY`, it sends a signal to a free charger robot to come and charge it. The charger robot moves to the robot and charges its battery. Once the picker robot's battery is full, the charger robot updates its state to `FREE` and waits for the next signal. In the basic and extended modes of the model, charger robots do not exist. Consequently, when a robot does not reach a charging station before its battery level drops below 0, it stops moving and cannot continue its tasks.Therefore, model stops.
 
-### 💡 Strawberry Farm Model Explanation
+## 💡 Strawberry Farm Model Explanation
 
 **Agent Placement:**
 
@@ -99,7 +93,7 @@ This is a parent class for farm agents with common functionalities.
 
 **Data Collector:** A data collector from Mesa has been implemented to gather and analyse KPIs (Key Performance Indicators) during the simulation. This tool allows for the systematic collection of data such as the number of strawberries picked, battery consumption, and distance traveled by robots.
 
-### 💡 Server and Grid Parameters Explanation
+## 💡 Server and Grid Parameters Explanation
 
 **Model Parameters:**
 
